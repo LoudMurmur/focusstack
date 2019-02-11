@@ -9,7 +9,7 @@ import FocusStack
     in a subdirectory "input" and then merges them together using the
     FocusStack module.  The output is put in the file merged.png
 
-
+    Re-Author : Thongvan Alexis (thongvan.alexis@gmail.com)
     Author:     Charles McGuinness (charles@mcguinness.us)
     Copyright:  Copyright 2015 Charles McGuinness
     License:    Apache License 2.0
