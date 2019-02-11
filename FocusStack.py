@@ -115,11 +115,12 @@ def focus_stack(unimages):
 
     output = np.zeros(shape=images[0].shape, dtype=images[0].dtype)
 
-    for y in range(0,images[0].shape[0]):
-        for x in range(0, images[0].shape[1]):
-            yxlaps = abs(laps[:, y, x])
-            index = (np.where(yxlaps == max(yxlaps)))[0][0]
-            output[y,x] = images[index][y,x]
+    abs_laps = np.absolute(laps)
+    maxima = abs_laps.max(axis=0)
+    bool_mask = abs_laps == maxima
+    mask = bool_mask.astype(np.uint8)
+    for i in range(0,len(images)):
+        output = cv2.bitwise_not(images[i],output, mask=mask[i])
 
-    return  output
+    return  255-output
 
